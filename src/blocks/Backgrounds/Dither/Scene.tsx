@@ -1,13 +1,16 @@
-import React, { useMemo, useEffect } from 'react';
+import React, { useMemo, useEffect, useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { EffectComposer } from '@react-three/postprocessing';
 import * as THREE from 'three';
 import { RetroEffect } from './Dither';
 import type { DitheredWavesProps } from './types';
 import { waveVertexShader, waveFragmentShader } from './Dither';
+import { Mesh, PlaneGeometry, ShaderMaterial } from 'three';
 
 const Scene = React.memo(function Scene(props: DitheredWavesProps) {
   const { viewport, size, gl } = useThree();
+  const meshRef = useRef<Mesh>(null);
+  const materialRef = useRef<ShaderMaterial>(null);
 
   const uniforms = useMemo(
     () => ({
@@ -61,6 +64,7 @@ const Scene = React.memo(function Scene(props: DitheredWavesProps) {
   return (
     <>
       <mesh
+        ref={meshRef}
         scale={[viewport.width, viewport.height, 1]}
         onPointerMove={handlePointerMove}
       >
@@ -72,7 +76,7 @@ const Scene = React.memo(function Scene(props: DitheredWavesProps) {
         />
       </mesh>
       <EffectComposer>
-        <RetroEffect />
+        <RetroEffect pixelSize={props.pixelSize} colorNum={props.colorNum} />
       </EffectComposer>
       <mesh
         position={[0, 0, 0.01]}

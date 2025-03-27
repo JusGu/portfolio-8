@@ -11,8 +11,9 @@ export default function Page() {
             Justin Gu
           </h1>
           <p className='max-w-[500px]'>
-            Founding engineer at a stealth startup. Taking courses on the side
-            to finish up my CS degree at UWaterloo.
+            I'm currently working full-time as a Founding engineer at a Stealth
+            Startup in San Mateo. I'm also taking courses on the side to finish
+            my CS degree at UWaterloo.
           </p>
         </div>
       </div>

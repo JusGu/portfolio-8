@@ -9,7 +9,6 @@ import React from 'react';
 import { wrapEffect } from '@react-three/postprocessing';
 import { Effect } from 'postprocessing';
 import * as THREE from 'three';
-import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { DitheredWaves } from './DitheredWaves';
@@ -131,7 +130,7 @@ vec3 dither(vec2 uv, vec3 color) {
   float bias = 0.15;
   color = clamp(color - bias, 0.0, 1.0);
   vec3 dithered = floor(color * (colorNum - 1.0) + 0.5) / (colorNum - 1.0);
-  return dithered * 0.3;
+  return dithered * 0.1;
 }
 
 void mainImage(in vec4 inputColor, in vec2 uv, out vec4 outputColor) {
@@ -169,7 +168,10 @@ class RetroEffectImpl extends Effect {
 
 const RetroEffect = wrapEffect(
   RetroEffectImpl,
-) as React.ForwardRefExoticComponent<React.RefAttributes<RetroEffectImpl>>;
+) as React.ForwardRefExoticComponent<
+  React.PropsWithoutRef<{ pixelSize: number; colorNum: number }> &
+    React.RefAttributes<RetroEffectImpl>
+>;
 
 interface DitherProps {
   waveSpeed?: number;

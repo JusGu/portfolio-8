@@ -18,7 +18,7 @@ export default function DitherWrapper() {
         }
       >
         <div className='absolute inset-0 w-full h-full'>
-          <Dither waveSpeed={0.04} waveColor={[0.2, 0.2, 0.2]} />
+          <Dither waveSpeed={0.03} waveColor={[0.5, 0.5, 0.5]} pixelSize={3} />
         </div>
       </Suspense>
     </div>
