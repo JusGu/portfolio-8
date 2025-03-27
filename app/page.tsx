@@ -6,7 +6,7 @@ export default function Page() {
     <section>
       <div className='relative mb-8'>
         <DitherWrapper />
-        <div className='absolute top-8 pl-2 text-white'>
+        <div className='absolute top-8 pl-2 text-white mix-blend-difference'>
           <h1 className='text-2xl font-semibold tracking-tighter mb-4'>
             Justin Gu
           </h1>

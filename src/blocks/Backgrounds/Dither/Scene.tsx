@@ -5,12 +5,11 @@ import * as THREE from 'three';
 import { RetroEffect } from './Dither';
 import type { DitheredWavesProps } from './types';
 import { waveVertexShader, waveFragmentShader } from './Dither';
-import { Mesh, PlaneGeometry, ShaderMaterial } from 'three';
 
 const Scene = React.memo(function Scene(props: DitheredWavesProps) {
   const { viewport, size, gl } = useThree();
-  const meshRef = useRef<Mesh>(null);
-  const materialRef = useRef<ShaderMaterial>(null);
+  const meshRef = useRef<THREE.Mesh>(null);
+  const materialRef = useRef<THREE.ShaderMaterial>(null);
 
   const uniforms = useMemo(
     () => ({
@@ -52,7 +51,7 @@ const Scene = React.memo(function Scene(props: DitheredWavesProps) {
     }
   });
 
-  const handlePointerMove = (e: THREE.Event) => {
+  const handleGlobalPointerMove = (e: MouseEvent) => {
     if (!props.enableMouseInteraction) return;
     const rect = gl.domElement.getBoundingClientRect();
     const dpr = gl.getPixelRatio();
@@ -61,15 +60,18 @@ const Scene = React.memo(function Scene(props: DitheredWavesProps) {
     uniforms.mousePos.value.set(x, y);
   };
 
+  useEffect(() => {
+    window.addEventListener('mousemove', handleGlobalPointerMove);
+    return () =>
+      window.removeEventListener('mousemove', handleGlobalPointerMove);
+  }, []);
+
   return (
     <>
-      <mesh
-        ref={meshRef}
-        scale={[viewport.width, viewport.height, 1]}
-        onPointerMove={handlePointerMove}
-      >
+      <mesh ref={meshRef} scale={[viewport.width, viewport.height, 1]}>
         <planeGeometry />
         <shaderMaterial
+          ref={materialRef}
           vertexShader={waveVertexShader}
           fragmentShader={waveFragmentShader}
           uniforms={uniforms}
@@ -78,14 +80,6 @@ const Scene = React.memo(function Scene(props: DitheredWavesProps) {
       <EffectComposer>
         <RetroEffect pixelSize={props.pixelSize} colorNum={props.colorNum} />
       </EffectComposer>
-      <mesh
-        position={[0, 0, 0.01]}
-        scale={[viewport.width, viewport.height, 1]}
-        onPointerMove={handlePointerMove}
-      >
-        <planeGeometry />
-        <meshBasicMaterial transparent opacity={0} />
-      </mesh>
     </>
   );
 });
