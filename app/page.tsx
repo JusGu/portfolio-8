@@ -1,6 +1,6 @@
 import { BlogPosts } from 'app/components/posts';
 import DitherWrapper from './components/ditherWrapper';
-import { gelasio, dellaRespira } from './fonts';
+import { gelasio } from './fonts';
 
 export default function Page() {
   return (
