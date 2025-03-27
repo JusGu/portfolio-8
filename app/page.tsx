@@ -4,15 +4,19 @@ import DitherWrapper from './components/ditherWrapper';
 export default function Page() {
   return (
     <section>
-      <DitherWrapper />
-      <h1 className='mb-8 text-2xl font-semibold tracking-tighter'>
-        Justin Gu
-      </h1>
+      <div className='relative mb-8'>
+        <DitherWrapper />
+        <div className='absolute top-8 left-8 text-white'>
+          <h1 className='text-2xl font-semibold tracking-tighter mb-4'>
+            Justin Gu
+          </h1>
+          <p className='max-w-[500px]'>
+            Founding engineer at a stealth startup. Taking courses on the side
+            to finish up my CS degree at UWaterloo.
+          </p>
+        </div>
+      </div>
 
-      <p className='mb-4'>
-        Founding engineer at a stealth startup. Taking courses on the side to
-        finish up my CS degree at UWaterloo.
-      </p>
       <div className='my-8'>
         <BlogPosts />
       </div>

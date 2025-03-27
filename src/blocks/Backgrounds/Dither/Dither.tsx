@@ -6,7 +6,6 @@
 
 /* eslint-disable react/no-unknown-property */
 import React from 'react';
-import { Canvas } from '@react-three/fiber';
 import { wrapEffect } from '@react-three/postprocessing';
 import { Effect } from 'postprocessing';
 import * as THREE from 'three';
@@ -129,9 +128,10 @@ vec3 dither(vec2 uv, vec3 color) {
   float threshold = bayerMatrix8x8[y * 8 + x] - 0.25;
   float step = 1.0 / (colorNum - 1.0);
   color += threshold * step;
-  float bias = 0.2;
+  float bias = 0.15;
   color = clamp(color - bias, 0.0, 1.0);
-  return floor(color * (colorNum - 1.0) + 0.5) / (colorNum - 1.0);
+  vec3 dithered = floor(color * (colorNum - 1.0) + 0.5) / (colorNum - 1.0);
+  return dithered * 0.1;
 }
 
 void mainImage(in vec4 inputColor, in vec2 uv, out vec4 outputColor) {
