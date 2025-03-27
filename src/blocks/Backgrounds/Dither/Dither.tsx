@@ -201,9 +201,13 @@ export default function Dither(props: DitherProps) {
   };
 
   return (
-    <ErrorBoundary fallback={<div>Error loading 3D content</div>}>
-      <Suspense fallback={<div>Loading...</div>}>
-        <DitheredWaves {...defaultedProps} />
+    <ErrorBoundary
+      fallback={<div className='w-full h-full'>Error loading 3D content</div>}
+    >
+      <Suspense fallback={<div className='w-full h-full'>Loading...</div>}>
+        <div className='w-full h-full'>
+          <DitheredWaves {...defaultedProps} />
+        </div>
       </Suspense>
     </ErrorBoundary>
   );

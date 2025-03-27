@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
 import type { DitheredWavesProps } from './types';
 import Scene from './Scene';
 
-export default function ThreeCanvas(props: DitheredWavesProps) {
+interface ThreeCanvasProps extends DitheredWavesProps {
+  onLoad?: () => void;
+}
+
+const ThreeCanvas: React.FC<ThreeCanvasProps> = ({ onLoad, ...props }) => {
   return (
     <Canvas
       className='w-full h-full relative'
@@ -15,8 +19,11 @@ export default function ThreeCanvas(props: DitheredWavesProps) {
         preserveDrawingBuffer: true,
       }}
       performance={{ min: 0.5 }}
+      onCreated={() => onLoad?.()}
     >
       <Scene {...props} />
     </Canvas>
   );
-}
+};
+
+export default ThreeCanvas;

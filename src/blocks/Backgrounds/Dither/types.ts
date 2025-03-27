@@ -8,6 +8,7 @@ export interface DitheredWavesProps {
   disableAnimation: boolean;
   enableMouseInteraction: boolean;
   mouseRadius: number;
+  onLoad?: () => void;
 }
 
 export interface DitherProps {
