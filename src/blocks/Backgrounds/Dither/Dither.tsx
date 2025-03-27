@@ -131,7 +131,7 @@ vec3 dither(vec2 uv, vec3 color) {
   float bias = 0.15;
   color = clamp(color - bias, 0.0, 1.0);
   vec3 dithered = floor(color * (colorNum - 1.0) + 0.5) / (colorNum - 1.0);
-  return dithered * 0.1;
+  return dithered * 0.3;
 }
 
 void mainImage(in vec4 inputColor, in vec2 uv, out vec4 outputColor) {
