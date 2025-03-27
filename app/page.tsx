@@ -10,8 +10,8 @@ export default function Page() {
       </h1>
 
       <p className='mb-4'>
-        Founding engineer at a stealth startup. Also taking courses on the side
-        to finish up my degree at the University of Waterloo.
+        Founding engineer at a stealth startup. Taking courses on the side to
+        finish up my CS degree at UWaterloo.
       </p>
       <div className='my-8'>
         <BlogPosts />
