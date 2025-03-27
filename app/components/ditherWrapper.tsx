@@ -11,7 +11,7 @@ export default function DitherWrapper() {
   return (
     <div className='relative w-full h-full'>
       <Suspense fallback={<div className='w-full h-full bg-black' />}>
-        <Dither waveSpeed={0.01} />
+        <Dither waveSpeed={0.04} />
       </Suspense>
     </div>
   );
