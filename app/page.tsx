@@ -1,14 +1,17 @@
 import { BlogPosts } from 'app/components/posts';
+import DitherWrapper from './components/ditherWrapper';
 
 export default function Page() {
   return (
     <section>
+      <DitherWrapper />
       <h1 className='mb-8 text-2xl font-semibold tracking-tighter'>
-        My Portfolio
+        Justin Gu
       </h1>
 
       <p className='mb-4'>
-        {`I’m currently a founding engineer at a Kleiner Perkins funded stealth startup. I’m also currently taking courses on the side to finish up my computer science degree at the University of Waterloo.`}
+        Founding engineer at a stealth startup. Also taking courses on the side
+        to finish up my degree at the University of Waterloo.
       </p>
       <div className='my-8'>
         <BlogPosts />
