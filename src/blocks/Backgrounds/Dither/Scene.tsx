@@ -51,19 +51,33 @@ const Scene = React.memo(function Scene(props: DitheredWavesProps) {
     }
   });
 
-  const handleGlobalPointerMove = (e: MouseEvent) => {
-    if (!props.enableMouseInteraction) return;
+  const handlePointerMove = (x: number, y: number) => {
     const rect = gl.domElement.getBoundingClientRect();
     const dpr = gl.getPixelRatio();
-    const x = (e.clientX - rect.left) * dpr;
-    const y = (e.clientY - rect.top) * dpr;
-    uniforms.mousePos.value.set(x, y);
+    const posX = (x - rect.left) * dpr;
+    const posY = (y - rect.top) * dpr;
+    uniforms.mousePos.value.set(posX, posY);
   };
 
   useEffect(() => {
-    window.addEventListener('mousemove', handleGlobalPointerMove);
-    return () =>
-      window.removeEventListener('mousemove', handleGlobalPointerMove);
+    const handleMouseMove = (e: MouseEvent) => {
+      handlePointerMove(e.clientX, e.clientY);
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        const touch = e.touches[0];
+        handlePointerMove(touch.clientX, touch.clientY);
+      }
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('touchmove', handleTouchMove);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('touchmove', handleTouchMove);
+    };
   }, []);
 
   return (
