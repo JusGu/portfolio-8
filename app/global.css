@@ -31,6 +31,7 @@
 
 html {
   min-width: 360px;
+  overflow-x: hidden;
 }
 
 .prose .anchor {
