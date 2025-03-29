@@ -62,20 +62,20 @@ export default function WebringWidget() {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
       <a
-        className='transition-all hover:text-neutral-800 dark:hover:text-neutral-100'
+        className='transition-allhover:text-neutral-100'
         href='https://cs.uwatering.com/#justin.run?nav=prev'
       >
         ←
       </a>
       <a
-        className='transition-all hover:text-neutral-800 dark:hover:text-neutral-100'
+        className='transition-all hover:text-neutral-100'
         href='https://cs.uwatering.com/#justin.run'
         target='_blank'
       >
         <WebringIcon />
       </a>
       <a
-        className='transition-all hover:text-neutral-800 dark:hover:text-neutral-100'
+        className='transition-all hover:text-neutral-100'
         href='https://cs.uwatering.com/#justin.run?nav=next'
       >
         →

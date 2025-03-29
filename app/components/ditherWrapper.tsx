@@ -18,7 +18,7 @@ export default function DitherWrapper() {
             <div className='absolute inset-0 bg-black rounded-2xl animate-fade-in' />
           }
         >
-          <div className='absolute inset-0 w-full h-full pointer-events-auto dark:invert-0 invert'>
+          <div className='absolute inset-0 w-full h-full pointer-events-auto'>
             <Dither
               waveSpeed={0.03}
               waveColor={[0.5, 0.5, 0.5]}
