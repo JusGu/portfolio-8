@@ -51,7 +51,7 @@ const Scene = React.memo(function Scene(props: DitheredWavesProps) {
       uniforms.mouseRadius.value = props.mouseRadius;
 
       // Smoothly interpolate the mouse position
-      uniforms.mousePos.value.lerp(uniforms.targetMousePos.value, 0.1);
+      uniforms.mousePos.value.lerp(uniforms.targetMousePos.value, 0.3);
     }
   });
 
