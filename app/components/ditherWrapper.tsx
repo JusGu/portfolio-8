@@ -20,7 +20,7 @@ export default function DitherWrapper() {
         >
           <div className='absolute inset-0 w-full h-full pointer-events-auto'>
             <Dither
-              waveSpeed={0.03}
+              waveSpeed={0.02}
               waveColor={[0.5, 0.5, 0.5]}
               pixelSize={4}
             />
