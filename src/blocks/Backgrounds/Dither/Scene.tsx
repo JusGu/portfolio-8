@@ -20,6 +20,7 @@ const Scene = React.memo(function Scene(props: DitheredWavesProps) {
       waveAmplitude: { value: props.waveAmplitude },
       waveColor: { value: new THREE.Color(...props.waveColor) },
       mousePos: { value: new THREE.Vector2() },
+      targetMousePos: { value: new THREE.Vector2() },
       enableMouseInteraction: { value: props.enableMouseInteraction ? 1 : 0 },
       mouseRadius: { value: props.mouseRadius },
     }),
@@ -48,6 +49,9 @@ const Scene = React.memo(function Scene(props: DitheredWavesProps) {
         ? 1
         : 0;
       uniforms.mouseRadius.value = props.mouseRadius;
+
+      // Smoothly interpolate the mouse position
+      uniforms.mousePos.value.lerp(uniforms.targetMousePos.value, 0.1);
     }
   });
 
@@ -56,7 +60,7 @@ const Scene = React.memo(function Scene(props: DitheredWavesProps) {
     const dpr = gl.getPixelRatio();
     const posX = (x - rect.left) * dpr;
     const posY = (y - rect.top) * dpr;
-    uniforms.mousePos.value.set(posX, posY);
+    uniforms.targetMousePos.value.set(posX, posY);
   };
 
   useEffect(() => {
