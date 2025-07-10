@@ -8,7 +8,7 @@ export default function Page() {
       <div className='relative mb-8'>
         <DitherWrapper />
         <div
-          className={`absolute top-8 pl-2 text-white mix-blend-difference ${gelasio.className}`}
+          className={`absolute top-8 pl-2 text-white ${gelasio.className} z-10`}
         >
           <h1
             className={`text-2xl tracking-tighter mb-4 font-semibold ${gelasio.className}`}
