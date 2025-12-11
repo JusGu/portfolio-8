@@ -16,8 +16,7 @@ export default function Page() {
             Justin Gu
           </h1>
           <p className={`max-w-[500px] ${gelasio.className}`}>
-            I'm currently working full-time as a Founding engineer at a Stealth
-            Startup in San Mateo. I'm also taking courses on the side to finish
+            I'm currently on the founding team at Maxima. I'm also taking courses on the side to finish
             my CS degree at UWaterloo.
           </p>
         </div>
