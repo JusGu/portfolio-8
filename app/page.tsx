@@ -29,7 +29,7 @@ export default function Page() {
             my CS degree at UWaterloo.
             <br />
             <br />
-            You can reach me at jjwgu [at] uwaterloo [dot] ca
+            jjwgu [at] uwaterloo [dot] ca
           </p>
         </div>
       </div>
