@@ -16,11 +16,20 @@ export default function Page() {
             Justin Gu
           </h1>
           <p className={`max-w-[500px] ${gelasio.className}`}>
-            I'm currently on the founding team at Maxima. We
-            {' '}
-            <a className={`text-white underline`} href="https://www.reuters.com/business/ai-accounting-startup-maxima-raises-41-million-kleiner-perkins-backed-round-2025-11-18/" target="_blank">recently raised 41m</a>
-            {' '}to support enterprise accounting teams at companies like Rippling, Fandom and Scale AI. I'm also taking courses on the side to finish
+            I'm currently on the founding team at Maxima. We{' '}
+            <a
+              className={`text-white underline`}
+              href='https://www.reuters.com/business/ai-accounting-startup-maxima-raises-41-million-kleiner-perkins-backed-round-2025-11-18/'
+              target='_blank'
+            >
+              recently raised 41m
+            </a>{' '}
+            to support enterprise accounting teams at companies like Rippling,
+            Fandom and Scale AI. I'm also taking courses on the side to finish
             my CS degree at UWaterloo.
+            <br />
+            <br />
+            You can reach me at jjwgu [at] uwaterloo [dot] ca
           </p>
         </div>
       </div>
